@@ -1,0 +1,19 @@
+environment_config:
+  path: config/environment_config.dart # optional, result file path against `lib/` folder
+  dotenv_path: .env # optional, result file path for .env file against project root folder
+  class: EnvironmentConfig
+
+  fields:
+    port: # define field only in Dart class
+      type: num
+    address:
+      dotenv: true # will define field in Dart and in `.env`
+    version:
+      dotenv: true # will define field in `.env`
+      config_field: false # will exclude field from Dart config file
+
+
+## run this commond
+# flutter pub run environment_config:generate --address=http://ip172-18-0-8-btvg31mj2b7000ek8820.direct.labs.play-with-k8s.com --port=8080 --version=v1
+
+## Reference from: https://pub.dev/packages/environment_config#getting-started
